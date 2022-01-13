@@ -1,0 +1,29 @@
+{
+  "name": "Contact-s",
+  "version": "1.0.0",
+  "description": "A node.js application that builds a webpage of your professional contacts. Build without ever leaving your terminal!",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DrDano/Contact-s.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DrDano/Contact-s/issues"
+  },
+  "homepage": "https://github.com/DrDano/Contact-s#readme",
+  "dependencies": {
+    "inquirer": "^8.2.0"
+  },
+  "devDependencies": {
+    "jest": "^27.4.7"
+  }
+}
