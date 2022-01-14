@@ -105,7 +105,7 @@ class Prompt {
         return inquirer.prompt(
             {
                 type: "text",
-                name: "github",
+                name: "school",
                 message: `What is the ${role}'s school?`,
                 validate: (input) => {
                     if (!input) {
@@ -114,6 +114,16 @@ class Prompt {
                     }
                     return true;
                 }
+            }
+        )
+    }
+
+    promptAddAnotherEmployee() {
+        return inquirer.prompt(
+            {
+                type: "confirm",
+                name: "addConfirm",
+                message: `Would you like to add another employee to your team?`,
             }
         )
     }

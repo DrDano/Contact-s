@@ -3,6 +3,7 @@ const manager = require('./lib/Manager')
 const engineer = require('./lib/Engineer')
 const intern = require('./lib/Intern')
 const prompt = require('./utils/promptUser')
+const fs = require('fs')
 
 
 
@@ -39,28 +40,58 @@ class buildEmployee {
         .then(res => {
             this.email = res.email;
             if (this.role === 'manager') {
-                return [this.prompter.promptOfficeNum(this.role), 'manager']
+                return this.prompter.promptOfficeNum(this.role)
             } else if (this.role === 'engineer') {
-                return [this.prompter.promptGithub(this.role), 'engineer']
+                return this.prompter.promptGithub(this.role)
             } else {
-                return [this.prompter.promptSchool(this.role), 'intern']
+                return this.prompter.promptSchool(this.role)
             }
         })
         .then(res => {
-            if (res[1] === 'manager') {
+            if (res.officeNumber) {
                 this.officeNumber = res.officeNumber;
                 this.manager = new manager(this.name, this.id, this.email, this.officeNumber)
-                return 'manager'
-            } else if (res[1] === 'engineer') {
+                return this.prompter.promptAddAnotherEmployee()
+                
+            } else if (res.github) {
                 this.github = res.github;
-                return 'engineer'
+                this.engineer = new engineer(this.name, this.id, this.email, this.github)
+                return this.prompter.promptAddAnotherEmployee()
             } else {
                 this.school = res.school;
-                return 'intern'
+                this.intern = new intern(this.name, this.id, this.email, this.school)
+                return this.prompter.promptAddAnotherEmployee()
             }
         })
-        
+        .then(res => {
+            this.createEmployeeCard();
+            if (res.addConfirm) {
+                this.buildTeamMember()
+            }
+        })
+        .then(res => {
+            this.createHTMLFile(res)
+        })
+    }
 
+    createEmployeeCard() {
+        return `
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">${this.name}</h5>
+                <h6 class="card-title">${this.role}</h6>
+                <p class="card-text">ID: ${this.id}</p>
+                <a href="mailto:${this.email}">${this.email}</a>
+                <p class="card-text">${this.officeNumber, this.github, this.school}</p>
+            </div>
+        </div>
+    `;
+    }
+
+    createHTMLFile(html) {
+        fs.writeFile("./employees.html", html, (err) => {
+            console.log(err);
+        })
     }
 }
 
