@@ -1,3 +1,9 @@
 const Employee = require('./lib/Employee')
+const prompt = require('./utils/promptUser')
 
-new Employee().getName();
+function runProgram() {
+    new prompt().getManagerName()
+    .then(result => console.log(result))
+}
+
+runProgram();
