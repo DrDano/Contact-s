@@ -2,6 +2,17 @@ const inquirer = require('inquirer')
 
 class Prompt {
 
+    promptRole() {
+        return inquirer.prompt(
+            {
+                type: "list",
+                name: "role",
+                message: `What is the employee's role?`,
+                choices: ['manager', 'engineer', 'intern']
+            }
+        )
+    }
+
     promptName(role) {
         return inquirer.prompt(
             {
