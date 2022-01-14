@@ -2,12 +2,12 @@ const inquirer = require('inquirer')
 
 class Prompt {
 
-    promptName() {
+    promptName(role) {
         return inquirer.prompt(
             {
                 type: "text",
                 name: "name",
-                message: `What is the person's name?`,
+                message: `What is the ${role}'s name?`,
                 validate: (input) => {
                     if (!input) {
                         console.log(`Please provide the person's name.`)
@@ -19,12 +19,12 @@ class Prompt {
         )
     }
 
-    promptId() {
+    promptId(role) {
         return inquirer.prompt(
             {
             type: "number",
             name: "id",
-            message: `What is the person's employee id?`,
+            message: `What is the ${role}'s employee id?`,
             validate: (input) => {
                 if (!input) {
                     console.log("Please provide an id.")
@@ -36,12 +36,12 @@ class Prompt {
         )
     }
 
-    promptEmail() {
+    promptEmail(role) {
         return inquirer.prompt(
             {
                 type: "input",
                 name: "email",
-                message: `What is the person's email address?`,
+                message: `What is the ${role}'s email address?`,
                 validate: (email) => {
                     const valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
         
@@ -56,12 +56,12 @@ class Prompt {
         )
     }
 
-    promptOfficeNum() {
+    promptOfficeNum(role) {
         return inquirer.prompt(
             {
                 type: "number",
                 name: "officeNumber",
-                message: "What is the office number?",
+                message: `What is the ${role}'s office number?`,
                 validate: (input) => {
                     if (!input) {
                         console.log("Please provide a phone number")
@@ -73,7 +73,41 @@ class Prompt {
         )
     }
 
-    
+    promptGithub(role) {
+        return inquirer.prompt(
+            {
+                type: "text",
+                name: "github",
+                message: `What is the ${role}'s Github username?`,
+                validate: (input) => {
+                    if (!input) {
+                        console.log(`Please provide a username.`)
+                        return false;
+                    }
+                    return true;
+                }
+            }
+        )
+    }
+
+    promptSchool(role) {
+        return inquirer.prompt(
+            {
+                type: "text",
+                name: "github",
+                message: `What is the ${role}'s school?`,
+                validate: (input) => {
+                    if (!input) {
+                        console.log(`Please provide a school.`)
+                        return false;
+                    }
+                    return true;
+                }
+            }
+        )
+    }
+
+
 }
 
 module.exports = Prompt;

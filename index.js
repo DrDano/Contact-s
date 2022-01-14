@@ -4,10 +4,26 @@ const engineer = require('./lib/Engineer')
 const intern = require('./lib/Intern')
 const prompt = require('./utils/promptUser')
 
-let initializeApp = new Promise(function(resolve, reject){
-    const employeeInstance = new employee()
-    employeeInstance.getEmployeeInfo()
-})
+class buildEmployee {
+    constructor(role) {
+        this.role = role;
+        this.name
+        this.id
+        this.email
+        this.officeNumber
+        this.github
+        this.school
+    }
 
+    buildManager() {
+        const managerInstance = new manager;
+        const prompter = new prompt;
 
-initializeApp().then(result => console.log(result));
+        prompter.promptName("manager")
+        .then(result => {this.name = result})
+
+        prompter.promptId("manager")
+    }
+}
+
+const employee1 = new buildEmployee().buildManager();
