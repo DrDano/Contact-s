@@ -1,11 +1,13 @@
+const employee = require('./lib/Employee')
 const manager = require('./lib/Manager')
 const engineer = require('./lib/Engineer')
 const intern = require('./lib/Intern')
 const prompt = require('./utils/promptUser')
 
-function runProgram() {
-    new prompt().getEmployeeInfo("Manager")
-    .then(result => console.log(result))
-}
+let initializeApp = new Promise(function(resolve, reject){
+    const employeeInstance = new employee()
+    employeeInstance.getEmployeeInfo()
+})
 
-runProgram()
+
+initializeApp().then(result => console.log(result));
