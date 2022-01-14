@@ -7,23 +7,29 @@ const prompt = require('./utils/promptUser')
 class buildEmployee {
     constructor(role) {
         this.role = role;
-        this.name
-        this.id
-        this.email
-        this.officeNumber
-        this.github
-        this.school
+        this.prompter = new prompt
+        this.manager;
+        this.engineer;
+        this.intern;
+
+        this.name;
+        this.id;
+        this.email;
+        this.officeNumber;
+        this.github;
+        this.school;
     }
 
-    buildManager() {
-        const managerInstance = new manager;
-        const prompter = new prompt;
+    buildTeam(role) {
+        this.prompter.promptName(role)
+        .then(name => {
+            this.manager = new manager(name)
+            this.prompter.promptId(role).then(id => {
+                this.manager()
+            })
+        })
 
-        prompter.promptName("manager")
-        .then(result => {this.name = result})
-
-        prompter.promptId("manager")
     }
 }
 
-const employee1 = new buildEmployee().buildManager();
+const employee1 = new buildEmployee().buildTeam("manager");
