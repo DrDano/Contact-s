@@ -17,4 +17,5 @@ body {
     background-image: linear-gradient(rgba(180, 180, 179, 0.993), rgb(59, 58, 58));
     font-size: 7vh;
     text-align: center;
+    min-height: 40vh;
   }
