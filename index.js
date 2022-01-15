@@ -72,7 +72,7 @@ class buildEmployee {
             if (res[1]) {
                 return this.buildTeamMember();
             } else {
-                this.writeToFile('./dist/employees.html', this.html)
+                return this.writeToFile('./dist/employees.html', this.buildFile())
             }
         })
     }
@@ -90,7 +90,6 @@ class buildEmployee {
 
         this.html += 
         `
-
         <div class="card" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title">${this.name}</h5>
@@ -101,6 +100,24 @@ class buildEmployee {
             </div>
         </div>
 
+        `;
+    }
+
+    buildFile() {
+        return `
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Document</title>
+        </head>
+        <body>
+            ${this.html}
+        </body>
+        </html>
+        
         `;
     }
 
