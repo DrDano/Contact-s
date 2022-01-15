@@ -78,9 +78,9 @@ class buildEmployee {
     }
 
     special() {
-        if (this.github) {
+        if (this.role === 'engineer') {
             return [`https://github.com/${this.github}`, this.github]
-        } else if (this.officeNumber) {
+        } else if (this.role === 'manager') {
             return ["", this.officeNumber]
         }
         return ["", this.school]
@@ -157,4 +157,13 @@ class buildEmployee {
     };
 }
 
+console.log(`
+    ██████╗ ██████╗ ███╗   ██╗████████╗ █████╗  ██████╗████████╗   ███████╗
+██╔════╝██╔═══██╗████╗  ██║╚══██╔══╝██╔══██╗██╔════╝╚══██╔══╝   ██╔════╝
+██║     ██║   ██║██╔██╗ ██║   ██║   ███████║██║        ██║█████╗███████╗
+██║     ██║   ██║██║╚██╗██║   ██║   ██╔══██║██║        ██║╚════╝╚════██║
+╚██████╗╚██████╔╝██║ ╚████║   ██║   ██║  ██║╚██████╗   ██║      ███████║
+ ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝   ╚═╝      ╚══════╝
+                                                                        
+`)
 new buildEmployee().buildTeamMember();
