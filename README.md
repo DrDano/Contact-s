@@ -15,7 +15,7 @@ A node.js application that builds a webpage of your professional contacts. Build
   The entire operation is designed to run in the background, while the user is unaware of the complexity under the hood.
   The code was designed to be utility-based so that future changes are easier to implement.
 
-  [Link to Walkthrough Video]()
+  [Link to Walkthrough Video](https://watch.screencastify.com/v/9Kk3T9CjCkV9giu7HULm)
 
   ## Table of contents
 
