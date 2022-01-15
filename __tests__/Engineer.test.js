@@ -1,5 +1,4 @@
 const Engineer = require('../lib/Engineer');
-const Employee = require('../lib/Employee');
 
 describe('Engineer Tests', () => {
     test('creates an Engineer object', () => {
