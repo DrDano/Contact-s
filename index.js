@@ -22,7 +22,7 @@ class buildEmployee {
         this.github;
         this.school;
 
-        this.html;
+        this.html = "";
     }
 
     buildTeamMember() {
