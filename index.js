@@ -129,7 +129,9 @@ class buildEmployee {
         </head>
         <header id="header">My Team</header>
         <body>
+            <div class="container">
             ${this.html}
+            </div>
         </body>
         </html>
         
