@@ -125,6 +125,7 @@ class buildEmployee {
         href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
         rel="stylesheet"
         />
+        <link rel="stylesheet" href="../src/style.css">
         <title>Document</title>
         </head>
         <header id="header">My Team</header>
