@@ -21,6 +21,8 @@ class buildEmployee {
         this.officeNumber;
         this.github;
         this.school;
+
+        this.html;
     }
 
     buildTeamMember() {
@@ -64,35 +66,59 @@ class buildEmployee {
             }
         })
         .then(res => {
-            this.createEmployeeCard();
-            if (res.addConfirm) {
-                this.buildTeamMember()
-            }
+            return [this.createEmployeeCard(), res.addConfirm]
         })
         .then(res => {
-            this.createHTMLFile(res)
+            if (res[1]) {
+                return this.buildTeamMember();
+            } else {
+                this.writeToFile('./dist/employees.html', this.html)
+            }
         })
     }
 
+    special() {
+        if (this.github) {
+            return this.github
+        } else if (this.officeNumber) {
+            return this.officeNumber
+        }
+        return this.school
+    }
+
     createEmployeeCard() {
-        return `
+
+        this.html += 
+        `
+
         <div class="card" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title">${this.name}</h5>
                 <h6 class="card-title">${this.role}</h6>
                 <p class="card-text">ID: ${this.id}</p>
                 <a href="mailto:${this.email}">${this.email}</a>
-                <p class="card-text">${this.officeNumber, this.github, this.school}</p>
+                <p class="card-text">${this.special()}</p>
             </div>
         </div>
-    `;
+
+        `;
     }
 
-    createHTMLFile(html) {
-        fs.writeFile("./employees.html", html, (err) => {
-            console.log(err);
-        })
-    }
+    writeToFile(fileName, data) {
+        return new Promise((resolve, reject) => {
+            fs.writeFile(fileName, data, err => {
+                if (err) {
+                    reject(err);
+                    return;
+                }
+    
+                resolve({
+                    ok: true,
+                    message: 'File created successfully!'
+                });
+            });
+        });
+    };
 }
 
-const employee1 = new buildEmployee().buildTeamMember();
+new buildEmployee().buildTeamMember();
