@@ -90,7 +90,7 @@ class buildEmployee {
 
         this.html += 
         `
-        <div class="card bg-light mb-3" style="max-width: 18rem;">
+        <div class="card bg-light mb-3 m-auto" style="max-width: 18rem;">
             <div class="card-header"><h5 class="card-title">${this.name}</h5></div>
             <div class="card-body">
                 <h6 class="card-title">${this.role}</h6>
@@ -132,7 +132,9 @@ class buildEmployee {
         <header id="header">My Team</header>
         <body>
         <div class="container">
+        <div class="row">
         ${this.html}
+        </div>
         </div>
         </body>
         </html>
