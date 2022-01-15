@@ -79,24 +79,25 @@ class buildEmployee {
 
     special() {
         if (this.github) {
-            return this.github
+            return [`https://github.com/${this.github}`, this.github]
         } else if (this.officeNumber) {
-            return this.officeNumber
+            return ["", this.officeNumber]
         }
-        return this.school
+        return ["", this.school]
     }
 
     createEmployeeCard() {
 
         this.html += 
         `
-        <div class="card" style="width: 18rem">
+        <div class="card bg-light mb-3" style="max-width: 18rem;">
+            <div class="card-header"><h5 class="card-title">${this.name}</h5></div>
             <div class="card-body">
-                <h5 class="card-title">${this.name}</h5>
                 <h6 class="card-title">${this.role}</h6>
                 <p class="card-text">ID: ${this.id}</p>
                 <a href="mailto:${this.email}">${this.email}</a>
-                <p class="card-text">${this.special()}</p>
+                <br><br>
+                <a href="${this.special()[0]}" target="_blank" rel="noopener noreferrer" class="card-text">${this.special()[1]}</a>
             </div>
         </div>
 
