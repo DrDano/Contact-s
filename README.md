@@ -5,7 +5,7 @@ A node.js application that builds a webpage of your professional contacts. Build
   ![](https://img.shields.io/badge/html-1-blue?logo=html)
 
   ## Description
-
+  ![contact-s](./src/contact-s.png)
   This package runs on node.js and generates a contact sheet for you in html. This application is designed to run entirely in your terminal.
 
   This project is built entirely using object oriented programming, and uses nothing but classes throughout. Its modules are broken down in the lib directory.
